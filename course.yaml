@@ -1,4 +1,17 @@
+schema_version: 1
+
 course:
-  title: ""
-  code: ""
-  term: ""
+  name: ""
+  institution: ""
+  period: ""
+  language: es
+
+sources:
+  priority:
+    - official
+    - notes
+    - external
+    - general_knowledge
+
+citation:
+  page_level: true
