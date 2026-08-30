@@ -24,7 +24,7 @@ Before doing academic work:
 
 # Source authority
 
-official > notes > external > general knowledge
+official > external > general knowledge
 
 Never present model knowledge as course material.
 
@@ -35,7 +35,6 @@ Original sources are immutable.
 Never modify:
 - sources/official/
 - sources/external/
-- notes/processed/
 
 # Wiki
 
@@ -45,8 +44,8 @@ Organize it by concept, not by source document.
 
 Important claims must be traceable to a source.
 
-Conflicting information goes in:
-wiki/conflicts.md
+Represent relevant source disagreements in the affected topic with clear,
+traceable attribution.
 
 # Study
 

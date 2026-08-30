@@ -9,7 +9,6 @@ course:
 sources:
   priority:
     - official
-    - notes
     - external
     - general_knowledge
 
