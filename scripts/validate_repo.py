@@ -42,6 +42,7 @@ REQUIRED_PATHS = (
     ".agents/skills/ingest-material/SKILL.md",
     ".agents/skills/study/SKILL.md",
     ".agents/skills/audit-wiki/SKILL.md",
+    "scripts/extract_office.py",
     "scripts/extract_pdf.py",
     "scripts/validate_repo.py",
 )

@@ -31,18 +31,27 @@ For each classifiable source:
    `sources/external/`.
 3. Add the minimal catalog record: `id`, `title`, `type`, `path`, and
    `extracted` when an extract exists. Paths are relative to `sources/`.
-4. For a PDF, run:
+4. Create an ID-named searchable extract for supported formats:
 
    ```bash
+   # PDF, with page boundaries
    python scripts/extract_pdf.py sources/<type>/<file>.pdf --output sources/extracted/<SOURCE-ID>.md
+
+   # Word or PowerPoint, with document structure or slide boundaries
+   python scripts/extract_office.py sources/<type>/<file>.docx --output sources/extracted/<SOURCE-ID>.md
+   python scripts/extract_office.py sources/<type>/<file>.pptx --output sources/extracted/<SOURCE-ID>.md
    ```
 
    Extraction is a regenerable retrieval aid, not authority. If important
    information depends on images, diagrams, formulas, tables, or spatial
    layout, inspect the original page when possible and do not infer missing
-   meaning from extracted text. For other formats, preserve the original and
-   create an ID-named searchable derivative only when the format can be
-   converted without academic interpretation.
+   meaning from extracted text. DOCX extraction preserves body paragraphs,
+   headings, and tables in document order, but not Word pagination. PPTX
+   extraction preserves slide boundaries, text, tables, and speaker notes.
+   Extraction warnings identify files or slides that require inspection of the
+   original. For other formats, preserve the original and create an ID-named
+   searchable derivative only when the format can be converted without
+   academic interpretation.
 
 ## Synthesize the wiki
 

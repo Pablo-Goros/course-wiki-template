@@ -61,4 +61,5 @@ Use the repository citation convention:
 
 * [SOURCE-ID, p. X]
 * [SOURCE-ID, pp. X-Y]
+* [SOURCE-ID, slide X]
 * [SOURCE-ID] when page-level citation is not applicable.
