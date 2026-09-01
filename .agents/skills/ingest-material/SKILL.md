@@ -40,6 +40,9 @@ For each classifiable source:
    # Word or PowerPoint, with document structure or slide boundaries
    python scripts/extract_office.py sources/<type>/<file>.docx --output sources/extracted/<SOURCE-ID>.md
    python scripts/extract_office.py sources/<type>/<file>.pptx --output sources/extracted/<SOURCE-ID>.md
+
+   # Video, synthesized from temporary audio/transcript/frame evidence
+   python scripts/extract_video.py sources/<type>/<file>.mp4 --output sources/extracted/<SOURCE-ID>.md
    ```
 
    Extraction is a regenerable retrieval aid, not authority. If important
@@ -49,9 +52,23 @@ For each classifiable source:
    headings, and tables in document order, but not Word pagination. PPTX
    extraction preserves slide boundaries, text, tables, and speaker notes.
    Extraction warnings identify files or slides that require inspection of the
-   original. For other formats, preserve the original and create an ID-named
-   searchable derivative only when the format can be converted without
-   academic interpretation.
+   original. Video extraction is different: its durable output is a concise,
+   structured educational document synthesized from the spoken and visual
+   content, not a transcript. Audio, timestamped transcript data, and sampled
+   frames are disposable implementation details and must not be cataloged or
+   preserved as user-facing sources. The video extract should combine related
+   ideas, remove filler and repetition, preserve meaningful examples,
+   equations, diagrams, code, tables, and caveats, and use timestamps only for
+   major or especially useful moments. Processing is local-only: use
+   `faster-whisper` for speech recognition and the loopback Ollama service with
+   `qwen2.5vl:3b` for visual analysis and synthesis. It requires `ffmpeg`,
+   `ffprobe`, Ollama, and the Python dependencies, but no API key or paid remote
+   service. The script deletes source-specific intermediates after a successful
+   or failed run; reusable local model weights may remain cached. Before the
+   first run, verify Ollama is running and execute `ollama pull qwen2.5vl:3b`.
+   For other formats, preserve the original and create an ID-named searchable
+   derivative only when the format can be converted without academic
+   interpretation.
 
 ## Synthesize the wiki
 
@@ -68,8 +85,9 @@ Prefer links over repeated explanations. Maintain meaningful `related` and
 `prerequisites` relationships.
 
 Synthesize across sources according to `course.yaml` authority. Trace important
-claims with repository citations such as `[OFF-001, p. 12]` or
-`[EXT-003, pp. 45-47]`; do not cite general model knowledge as course evidence.
+claims with repository citations such as `[OFF-001, p. 12]`,
+`[EXT-003, pp. 45-47]`, or `[OFF-005, 00:34:20]` for a video; do not cite
+general model knowledge as course evidence.
 Add exam relevance only when repository evidence supports it, and distinguish
 explicit evidence from inference.
 
