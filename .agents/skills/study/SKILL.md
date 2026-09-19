@@ -9,10 +9,8 @@ Treat studying as read-only by default. Do not change sources, the catalog, wiki
 topics, or the index because a tutoring explanation was useful. Only edit the
 repository when the user separately and explicitly requests it.
 
-The primary outcome is not content coverage. It is that the student can explain
-ideas in their own words, reason about them, apply them to new cases, compare
-alternatives, and predict the effect of changed conditions. Default to active
-participation rather than a lecture.
+Use active participation rather than a lecture. Study-state files track only
+topic coverage; do not turn them into an assessment or learner profile.
 
 ## Retrieve efficiently
 
@@ -68,25 +66,22 @@ relevant to the user's question.
 
 ## Start with a learning map
 
-When the user asks to learn, review, or be taught a broad topic, first propose a
-natural sequence of small conceptual blocks. Derive it from the topic content,
+When the user asks to learn, review, or be taught a broad topic, first propose
+a natural ordered list of topics. Derive it from the topic content,
 prerequisites, and relationships rather than choosing an arbitrary number of
-parts. Give each block a one-line purpose.
+parts.
 
-After presenting the map, create a resumable session-state file in the
+After presenting the map, create a resumable coverage file in the
 repository root named `study_<topic-slug>.md`, using
 [`study_template.md`](study_template.md). Derive `<topic-slug>` from the
 requested topic in lowercase kebab case; reuse the same file for that topic
-rather than creating duplicates. Fill it with the proposed learning map, the
-relevant course materials, and enough learning context to continue without the
-current conversation. Mark every newly proposed block as pending, set the
-current block to the first one, and record that the map is awaiting the
-student's start or revision. Then stop and wait for the user to start or revise
-the sequence.
+rather than creating duplicates. Fill it only with the proposed ordered topics.
+Mark every newly proposed topic as pending and the first topic as in progress.
+Then stop and wait for the user to start or revise the sequence.
 
 When a study request may continue an existing mapped session, first look for
-the corresponding `study_<topic-slug>.md`, read it, and resume from its current
-block and recorded context. If the topic is not named and exactly one unfinished
+the corresponding `study_<topic-slug>.md`, read it, and resume from its topic in
+progress. If the topic is not named and exactly one unfinished
 study file exists, resume it; if several exist, ask the student which topic to
 continue. Do not overwrite an existing session state with a new map unless the
 student explicitly asks to replace it.
@@ -94,38 +89,20 @@ student explicitly asks to replace it.
 Do not force this planning pause onto a bounded question that can be handled in
 one focused block. Do not begin teaching immediately after presenting a map.
 
-## Maintain resumable study state
+## Maintain topic coverage
 
 The generated `study_<topic-slug>.md` is the only permitted study-session
-write under the normal read-only study workflow. Keep academic content in the
-language configured by `course.yaml` or requested by the student, while
-preserving the template's structural fields.
+write under the normal read-only study workflow. Its sole purpose is to show
+which ordered topics are covered, which one is in progress, and which remain
+pending. Do not add timestamps, materials, learning goals, next actions,
+student answers, demonstrated understanding, misconceptions, tutor inferences,
+or any other learner record.
 
-Update the file after each meaningful learning exchange: when the student
-starts or revises the map, answers questions, receives feedback, completes a
-block, exposes a misconception, changes the goal or constraints, or reaches
-the integration phase. Do not mark a block complete until the conceptual
-criteria in this skill are met. Record only observed student reasoning and
-explicitly label tutor inferences or remaining uncertainty; never reconstruct
-missing progress from memory.
-
-Keep the state concise but sufficient for a new conversation to continue:
-
-1. Session identity, topic, language, and last-updated timestamp.
-2. The learning goal, scope, and active teaching preferences or user
-   instructions.
-3. Relevant wiki, source, and practical-assignment paths actually used.
-4. The ordered map with each block's purpose and status: pending, current,
-   completed, or blocked.
-5. A short record of completed blocks, the student's demonstrated
-   understanding, misconceptions, unanswered questions, and corrections still
-   needed.
-6. The exact next teaching action, including the next question when one is
-   awaiting an answer.
-
-When all blocks and the integration phase are complete, mark the session
-complete and retain the file as the final learning record. Do not delete it
-automatically.
+Update the file only when the map changes or a topic's coverage status changes.
+Use the equivalents of `covered`, `in progress`, and `pending` in the course or
+requested language. Keep at most one topic in progress. Mark a topic covered
+when its planned teaching block is finished; then move the in-progress status
+to the next pending topic. Retain the file after all topics are covered.
 
 ## Run an active learning loop
 
