@@ -181,10 +181,14 @@ def validate_catalog(validation: Validation) -> set[str]:
         if not isinstance(original, str) or not original.strip():
             validation.error(location, "'path' must be a non-empty string")
         else:
-            expected_dir = f"{source_type}/" if source_type in {"official", "external"} else None
+            allowed_dirs = {
+                "official": ("official/", "tps/"),
+                "external": ("external/",),
+            }.get(source_type)
             normalized = original.replace("\\", "/")
-            if expected_dir and not normalized.startswith(expected_dir):
-                validation.error(location, f"'path' must start with {expected_dir!r}")
+            if allowed_dirs and not normalized.startswith(allowed_dirs):
+                expected = " or ".join(repr(directory) for directory in allowed_dirs)
+                validation.error(location, f"'path' must start with {expected}")
             resolved = safe_source_path(original, location, validation)
             if resolved is not None and not resolved.is_file():
                 validation.error(location, f"original file does not exist: sources/{normalized}")

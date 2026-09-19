@@ -1,6 +1,6 @@
 ---
 name: study
-description: Tutor through active, interactive learning grounded in the repository's compiled course wiki. Use for explanations, guided study, practice, learning paths, and exam preparation that should require the student to reason and respond.
+description: Tutor through active, interactive learning grounded in the compiled course wiki and relevant practical assignments.
 ---
 
 # Study
@@ -20,8 +20,13 @@ participation rather than a lecture.
 2. Open the relevant topic or topics.
 3. Follow `prerequisites` and `related` only when they improve the answer or
    learning path.
-4. Search `sources/extracted/` when the wiki lacks needed detail.
-5. Verify important claims against the cited original source when precision is
+4. When a practical application would help, identify relevant course
+   assignments through catalog entries whose path starts with `tps/`, then
+   search only their matching extracts or originals. Match by concepts,
+   methods, task constraints, data, or evaluation criteria; do not load every
+   assignment by default.
+5. Search `sources/extracted/` when the wiki lacks needed detail.
+6. Verify important claims against the cited original source when precision is
    important or the extract may have lost visual, formula, table, or layout
    information.
 
@@ -45,6 +50,21 @@ Use actual `prerequisites` and `related` metadata to explain connections and
 build study sequences. For exam-scope questions, rely on supported `Exam
 relevance` content and verify it against repository sources when needed. State
 uncertainty rather than turning inference into certainty.
+
+## Use practical assignments as application context
+
+When a relevant consigna exists, connect the concept to the concrete problem it
+asks the student to solve. Prefer the assignment's actual choices, constraints,
+data, deliverables, metrics, and failure cases when posing applied questions or
+examples. Clearly distinguish an explicit TP requirement from the theory that
+explains it, and do not invent missing specifications, hidden tests, data, or
+expected results.
+
+Favor practical reasoning where it fits: selecting a representation or model,
+predicting the effect of a parameter or design choice, tracing a computation,
+diagnosing a result, choosing an evaluation method, or justifying an
+implementation plan. Do not force a TP connection when no assignment is
+relevant to the user's question.
 
 ## Start with a learning map
 

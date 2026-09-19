@@ -35,6 +35,7 @@ Original sources are immutable.
 Never modify:
 - sources/official/
 - sources/external/
+- sources/tps/
 
 # Wiki
 
