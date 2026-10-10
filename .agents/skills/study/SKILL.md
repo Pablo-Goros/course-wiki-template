@@ -19,11 +19,13 @@ topic coverage; do not turn them into an assessment or learner profile.
 3. Follow `prerequisites` and `related` only when they improve the answer or
    learning path.
 4. When a practical application would help, identify relevant course
-   assignments through catalog entries whose path starts with `tps/`, then
+   assignments through catalog entries with `type: practical_assignment`
+   and `PA-NNN` IDs under `practical-assignment/`, then
    search only their matching extracts or originals. Match by concepts,
    methods, task constraints, data, or evaluation criteria; do not load every
    assignment by default.
-5. Search `sources/extracted/` when the wiki lacks needed detail.
+5. Search the `OFF-NNN` and `EXT-NNN` teaching-source extracts in
+   `sources/extracted/` when the wiki lacks needed theoretical detail.
 6. Verify important claims against the cited original source when precision is
    important or the extract may have lost visual, formula, table, or layout
    information.
@@ -51,17 +53,23 @@ uncertainty rather than turning inference into certainty.
 
 ## Use practical assignments as application context
 
-When a relevant consigna exists, connect the concept to the concrete problem it
+When asked to solve a PA, read its `PA-NNN` extract and inspect its original
+when needed. Use it to establish the tasks and requirements; ground the
+explanation and solution in the relevant wiki topics and teaching sources.
+Keep PA requirements separate from theoretical evidence. Do not use PAs to
+generate wiki content or treat their extracts as course knowledge.
+
+When a relevant assignment exists, connect the concept to the concrete problem it
 asks the student to solve. Prefer the assignment's actual choices, constraints,
 data, deliverables, metrics, and failure cases when posing applied questions or
-examples. Clearly distinguish an explicit TP requirement from the theory that
+examples. Clearly distinguish an explicit PA requirement from the theory that
 explains it, and do not invent missing specifications, hidden tests, data, or
 expected results.
 
 Favor practical reasoning where it fits: selecting a representation or model,
 predicting the effect of a parameter or design choice, tracing a computation,
 diagnosing a result, choosing an evaluation method, or justifying an
-implementation plan. Do not force a TP connection when no assignment is
+implementation plan. Do not force a PA connection when no assignment is
 relevant to the user's question.
 
 ## Start with a learning map

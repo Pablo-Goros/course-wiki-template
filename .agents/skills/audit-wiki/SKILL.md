@@ -33,6 +33,8 @@ Review what deterministic checks cannot decide:
 - academic content in a language other than `course.yaml` specifies;
 - exam-relevance claims without repository evidence;
 - claims that appear to be unsupported model inference.
+- wiki content derived from practical assignments, including uncited PA-based
+  examples or applications; PAs are task context, not wiki knowledge sources.
 
 Follow citations into the catalog, extracts, and originals as needed. Apply the
 authority order from `course.yaml`, and distinguish an actual contradiction

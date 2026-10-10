@@ -2,8 +2,7 @@
 
 This repository is a persistent learning system.
 
-Codex maintains a traceable compiled wiki from the available
-course sources and acts as a tutor over that knowledge.
+The Agent maintains a traceable compiled wiki from the available course sources and acts as a tutor over that knowledge.
 
 ## Language conventions
 
@@ -35,11 +34,13 @@ Original sources are immutable.
 Never modify:
 - sources/official/
 - sources/external/
-- sources/tps/
+- sources/practical-assignment/
 
 # Wiki
 
 wiki/ is compiled knowledge.
+
+Practical assignments are cataloged separately as `practical_assignment` with `PA-NNN` IDs. Preserve their originals in `sources/practical-assignment/` and searchable extracts in `sources/extracted/PA-NNN.md`. Use them as task context when helping solve assignments; never generate wiki content from them or cite them as wiki knowledge sources. Ground explanations in the wiki and teaching sources instead.
 
 Organize it by concept, not by source document.
 

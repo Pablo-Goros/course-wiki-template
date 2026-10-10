@@ -9,6 +9,24 @@ The V1 workflow is:
 2. `study` uses the compiled wiki as a read-only tutoring layer.
 3. `audit-wiki` combines deterministic validation with semantic review.
 
+Practical assignments are cataloged separately from teaching sources. Upload
+them to `sources/inbox/` for ingestion, or place them directly in
+`sources/practical-assignment/`. Their originals remain unchanged, their catalog
+type is `practical_assignment`, and searchable extracts use `PA-NNN` IDs:
+
+```yaml
+sources:
+  - id: PA-001
+    title: Practical assignment 1
+    type: practical_assignment
+    path: practical-assignment/assignment-1.pdf
+    extracted: extracted/PA-001.md
+```
+
+Ingestion preserves the assignment's questions and requirements without
+generating wiki content from it. Tutoring uses PAs as task context and the
+wiki and teaching sources to explain and solve them.
+
 Install the script dependencies with:
 
 ```bash

@@ -1,13 +1,13 @@
 ---
 name: ingest-material
-description: Ingest pending course sources and course practical assignments into the catalog, searchable extracts, and a traceable concept-oriented wiki.
+description: Catalog and extract pending course material and practical assignments; compile wiki knowledge only from teaching sources.
 ---
 
 # Ingest Material
 
 Transform classifiable files in `sources/inbox/` into preserved evidence and
 source-backed wiki knowledge. Course practical-assignment instructions belong
-in `sources/tps/`; also inspect unrecorded files already placed there. Work
+in `sources/practical-assignment/`; also inspect unrecorded files already placed there. Work
 from the repository root. Read `AGENTS.md`, `course.yaml`, `wiki/index.md`,
 and `wiki/topic-template.md` before processing academic content.
 
@@ -15,27 +15,28 @@ and `wiki/topic-template.md` before processing academic content.
 
 Inspect every pending file and classify it as:
 
-- `official`: supplied by the course, chair, or instructor.
+- `official`: teaching material supplied by the course, chair, or instructor.
 - `external`: complementary books, papers, documentation, or other outside
   resources.
-- `practical assignment`: an official consigna, rubric, starter material, or
+- `practical_assignment`: a course consigna, rubric, starter material, or
   other instruction for a course practical assignment.
 
 Use file contents and available provenance, not filename guesses. Leave an
-ambiguous file in the inbox and report what evidence is missing. A practical
-assignment remains an `official` source in the catalog; `practical assignment`
-only determines its storage location and how it is used in the wiki and study.
+ambiguous file in the inbox and report what evidence is missing. Classify course
+assignments as `practical_assignment` even when supplied by the instructor.
+They are task context for solving assignments, not wiki knowledge sources.
 
 For each classifiable source:
 
 1. Read `sources/catalog.yaml` and assign the next unused ID for its type:
-   `OFF-NNN` or `EXT-NNN`. IDs are stable, independent of filenames, and must
+   `OFF-NNN`, `EXT-NNN`, or `PA-NNN` for `official`, `external`, or
+   `practical_assignment`, respectively. IDs are stable, independent of filenames, and must
    never be reassigned, recycled, or removed merely because a source changes
    location.
 2. Move the original without changing its bytes to `sources/official/`,
-   `sources/external/`, or `sources/tps/` for a course practical assignment.
-   Do not move or rename an unrecorded file already in `sources/tps/`; catalog
-   it in place. Treat originals in `sources/tps/` as immutable once recorded.
+   `sources/external/`, or `sources/practical-assignment/` for a course practical assignment.
+   Do not move or rename an unrecorded file already in `sources/practical-assignment/`; catalog
+   it in place. Treat originals there as immutable once recorded.
 3. Add the minimal catalog record: `id`, `title`, `type`, `path`, and
    `extracted` when an extract exists. Paths are relative to `sources/`.
 4. Create an ID-named searchable extract for supported formats:
@@ -85,13 +86,13 @@ existing topic when the concept naturally belongs there. Create a new topic
 only for a concept that could reasonably support an independent academic
 question; never mirror document units such as classes, chapters, or slides.
 
-For a practical assignment, do not create a topic for the TP itself. Identify
-the concepts, methods, data, evaluation criteria, and implementation decisions
-that its consigna actually requires. Add a concise, traceable practical
-application to the relevant existing topics when it improves their use for
-study; cite the assignment precisely and distinguish a required task from a
-general theoretical claim. An assignment spanning several concepts may update
-several topics.
+For a practical assignment, stop after preserving, cataloging, and extracting
+the document. Keep its questions, requirements, constraints, and supplied data
+searchable in `sources/extracted/PA-NNN.md`; do not add solutions or inferred
+theory to the extract. Never create or update wiki topics or the index based
+on a PA, including practical applications, examples, or exam relevance. A run
+containing only PAs leaves `wiki/` unchanged. In a mixed run, synthesize wiki
+content only from `official` and `external` teaching sources.
 
 Follow `wiki/topic-template.md`, adapting optional sections to the concept.
 Use the academic language configured in `course.yaml`, lowercase kebab-case
