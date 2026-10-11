@@ -7,9 +7,9 @@ description: Catalog and extract pending course material and practical assignmen
 
 Transform classifiable files in `sources/inbox/` into preserved evidence and
 source-backed wiki knowledge. Course practical-assignment instructions belong
-in `sources/practical-assignment/`; also inspect unrecorded files already placed there. Work
-from the repository root. Read `AGENTS.md`, `course.yaml`, `wiki/index.md`,
-and `wiki/topic-template.md` before processing academic content.
+in `sources/practical-assignment/`; also inspect unrecorded files already placed
+there. Work from the repository root. Follow `AGENTS.md` and
+`wiki/topic-template.md` before processing academic content.
 
 ## Process the inbox
 
@@ -35,8 +35,8 @@ For each classifiable source:
    location.
 2. Move the original without changing its bytes to `sources/official/`,
    `sources/external/`, or `sources/practical-assignment/` for a course practical assignment.
-   Do not move or rename an unrecorded file already in `sources/practical-assignment/`; catalog
-   it in place. Treat originals there as immutable once recorded.
+   Do not move or rename an unrecorded file already in
+   `sources/practical-assignment/`; catalog it in place.
 3. Add the minimal catalog record: `id`, `title`, `type`, `path`, and
    `extracted` when an extract exists. Paths are relative to `sources/`.
 4. Create an ID-named searchable extract for supported formats:
@@ -79,14 +79,11 @@ containing only PAs leaves `wiki/` unchanged. In a mixed run, synthesize wiki
 content only from `official` and `external` teaching sources.
 
 Follow `wiki/topic-template.md`, adapting optional sections to the concept.
-Use the academic language configured in `course.yaml`, lowercase kebab-case
-filenames, and aliases for important equivalent names in other languages.
+Apply the repository's language and filename conventions from `AGENTS.md`.
 Prefer links over repeated explanations. Maintain meaningful `related` and
 `prerequisites` relationships.
 
-Synthesize across sources according to `course.yaml` authority. Trace important
-claims with repository citations such as `[OFF-001, p. 12]` or
-`[EXT-003, pp. 45-47]`; do not cite general model knowledge as course evidence.
+Follow the source-authority and citation rules in `AGENTS.md` and `course.yaml`.
 Add exam relevance only when repository evidence supports it, and distinguish
 explicit evidence from inference.
 
