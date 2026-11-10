@@ -1,13 +1,13 @@
 ---
 name: study-plan
-description: Research a course topic and create a saved study map at the requested topic-wide depth, without teaching its blocks.
+description: Research a course topic and save a prerequisite-ordered map of small, single-concept blocks at the requested depth.
 ---
 
 # Study Plan
 
 Use this skill to research and plan a broad topic before teaching begins. It
-owns topic-level research and creates the depth-specific map used by
-`study-block`. Do not teach a block in this workflow.
+owns topic-level research and creates the depth-specific, concept-by-concept
+map used by `study-block`. Do not teach a block in this workflow.
 
 ## Choose the study depth
 
@@ -35,10 +35,22 @@ coverage of every block:
   prerequisites. Do not claim to cover every fact ever published on a broad
   field; identify where available sources leave gaps.
 
-Normally preserve the same major block sequence across study depths. Change the
-scope, subtopics, outcomes, source coverage, and planned detail within each
-block to match the topic-wide study depth. Add or remove a major block only when
-the research shows that the topic structure requires it.
+## Break the topic into single-concept blocks
+
+Break the topic into small concepts ordered by prerequisites. Each numbered,
+status-bearing block must have one focused learning outcome and a bounded
+scope. Broad units may group these blocks for navigation.
+
+Split a block when understanding it requires independently explaining several
+ideas. Keep a concept's definition, intuition, and small example together;
+give independently teachable mechanisms, assumptions, variants, or limitations
+their own blocks when required at the selected depth.
+
+Depth determines which concepts are included and how thoroughly each is
+covered. Deeper coverage may require more blocks, while each block remains
+focused on one concept. Preserve prerequisite order and account for every
+researched subtopic within scope, either in a block or as an explicit source
+gap. Let the topic determine the number of blocks.
 
 ## Research the topic and build the map
 
@@ -52,9 +64,10 @@ the research shows that the topic structure requires it.
    determine the blocks and their coverage at the selected depth. At `heavy`,
    survey all relevant teaching sources found in the repository, not just the
    wiki summaries. At `light`, prioritize the central sources and overview.
-3. Order blocks from prerequisites to dependent ideas. For each block, prepare
-   a clear scope, learning outcomes, key concepts or questions, and precise
-   source references. This is a researched teaching outline, not a full lesson.
+3. Decompose the researched coverage into single-concept blocks using the
+   criteria above. For each block, prepare a clear scope, one focused learning
+   outcome, a concept-specific question or example, and precise source
+   references. This is a researched teaching outline, not a full lesson.
 
 If repository sources do not support the requested depth, identify the gap in
 the plan rather than inventing coverage.
@@ -64,16 +77,20 @@ Save or update `study/<topic-slug>.md`, using
 the course language unless the user requests another language; keep the study
 depth value itself as the canonical English word `light`, `medium`, or `heavy`.
 Include the topic, its single study-depth level, and ordered blocks with a
-status, scope, learning outcomes, and source references. Add detail to each
-block's research outline according to the selected depth. Do not store student
-answers, demonstrated understanding, misconceptions, or learner profiles.
+status, scope, focused learning outcome, and source references. Add detail to
+each block's research outline according to the selected depth. Do not store
+student answers, demonstrated understanding, misconceptions, or learner profiles.
 
 Create the output directory if needed. Discover saved plans in `study/`.
 For compatibility, also check root-level `study_<topic-slug>.md` plans: when
-resuming one, move it to the new path without changing its depth, content, or
-statuses. If both paths exist for the same topic, compare them and resolve
-which to resume without overwriting either silently. Fix relative links when
-moving a plan; links to repository sources must resolve from `study/`.
+resuming one, move it to the new path, preserving its depth and existing
+coverage. If a legacy block bundles several concepts, split it before teaching;
+carry covered status to its component concepts, and mark only the first
+uncovered concept in progress. Treat this as a scope revision, preserving
+source references and the rest of the plan. If both paths exist for the same
+topic, compare them and resolve which to resume without overwriting either
+silently. Fix relative links when moving a plan; links to repository sources
+must resolve from `study/`.
 
 For a new plan, mark the first block in progress and the rest pending. Preserve
 statuses when resuming if the block scope has not changed. When the study depth

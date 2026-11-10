@@ -11,12 +11,16 @@ belong to `study-plan`.
 
 ## Select the block and study depth
 
-1. For a planned session, open the named `study/<topic-slug>.md`. Read its
+1. Follow the repository read-first instructions: read `course.yaml`,
+   `study.yaml`, and `wiki/index.md` before searching broadly. For a planned session, open the named
+   `study/<topic-slug>.md`. Read its
    topic-wide study depth, block scope, learning outcomes, and source references.
    If the user says to continue and exactly one unfinished plan exists, resume
    it; if several exist, ask which one. If no plan exists for a broad topic,
    direct the user to `study-plan` first.
-2. Teach only the in-progress block or the single block explicitly requested.
+2. Teach only the in-progress single-concept block or the single block
+   explicitly requested. If a legacy block bundles multiple concepts, use
+   `study-plan` to split it before teaching.
    The saved study depth applies to the whole topic and every block; never set a
    separate depth for an individual block. A request to change the depth for a
    broad topic requires `study-plan` to revise the whole topic map first.
@@ -54,24 +58,40 @@ Use the plan's scope and the research just completed. Follow `study.yaml` for
 language, pacing, examples, and interaction preferences. A current user
 instruction may change the response format without changing the saved depth.
 
-Teach one manageable block at a time. Establish what problem the idea solves,
-build intuition, then introduce terms and formalism. Ask numbered, open
-questions and wait for the learner's reasoning unless they asked for a different
-interaction style. Label invented scenarios as examples, not course material.
+Run one concept per learning loop: tutor presentation, learner questions or
+answers, then tutor feedback. Establish the problem, build intuition,
+and introduce the terms or formalism needed for this concept with a focused
+example. Ask a small number of numbered, open questions, then wait for the
+learner's questions and/or answers. Respond to what they actually ask or reason
+through, keeping answer numbering when correcting them. Explain the relevant
+conceptual gap; use a hint or simpler case when helpful.
 
-Explain source gaps plainly and cite important course claims. For PA examples
-and PA-solving requests, follow the distinction in `AGENTS.md`; PA solving
-belongs to `assignment-plan` or `assignment-step`.
+Steps 2 and 3 (learner questions or answers, then tutor feedback) can repeat
+indefinitely within the same loop. Keep further explanation and questions on
+the current concept for as long as the learner wants to discuss it. Name the
+next concept when ready, and
+begin teaching it in a subsequent turn after the learner continues. A request
+for a direct answer can skip tutor questions while staying within the current
+concept. Label invented scenarios as examples, not course material.
+
+Explain source gaps plainly and cite important course claims. For practical
+examples, use relevant assignments cataloged as `practical_assignment` as
+application context. Preserve their actual constraints and distinguish explicit
+assignment requirements from the theory explaining them. Research only matching
+extracts or originals; avoid inventing missing specifications or results.
+Assignment solving belongs to `assignment-plan` or `assignment-step`.
 
 ## Update coverage
 
-Update only the study plan's block statuses: mark the block covered when its
-teaching and discussion are complete and no major confusion remains, then move
+Studying leaves sources, the catalog, and the wiki unchanged. The saved plan's
+coverage statuses are the only routine session writes; keep at most one block
+in progress. Mark the block covered when its teaching and discussion are complete and no major confusion remains, then move
 the in-progress status to the next block. Do not mark it covered while waiting
 for an answer to an open question. Keep answers and learner profiles out of the
 plan.
 
 Close a completed block with its central idea and name the next block. After
-the last planned block, ask integration questions spanning the
-topic, then evaluate the learner's reasoning before marking the sequence
-complete. Retain the completed plan.
+the last concept block, offer a separate integration phase spanning the topic.
+Wait for and evaluate the learner's reasoning before declaring the sequence
+complete; keep individual concept coverage distinct from this final review.
+Retain the completed plan.

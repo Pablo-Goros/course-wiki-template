@@ -59,13 +59,15 @@ these plans and may update their coverage statuses; it does not save lessons
 or create block files.
 
 Use `study-plan` to create or revise a saved map for a broad topic, and
-`study-block` to teach one block or answer a bounded concept question. A PA may
+`study-block` to teach one concept per learning loop: tutor presentation,
+learner questions or answers, then tutor feedback, or answer a bounded concept
+question. A PA may
 be an optional example in a study block; it is not solved there.
 
 `study-plan` records one topic-wide study depth: `light`, `medium`, or `heavy`,
 defaulting to `medium` for a new plan. It researches the topic to build the map;
 `study-block` researches the selected block at that saved depth before
-teaching.
+teaching. Keep learner answers and profiles out of saved plans.
 
 # Temporary files
 

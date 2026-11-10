@@ -9,8 +9,9 @@ workflows:
 
 - `ingest-material` catalogs sources, creates searchable extracts, and builds
   the course wiki from teaching material.
-- `study-plan` and `study-block` create learning maps and teach one block at a
-  time.
+- `study-plan` and `study-block` create learning maps of single-concept blocks and
+  teach one concept per loop: presentation, learner questions or answers, then
+  feedback.
 - `assignment-plan` and `assignment-step` plan and carry out practical
   assignment work.
 - `audit-wiki` reviews the wiki's structure and content.

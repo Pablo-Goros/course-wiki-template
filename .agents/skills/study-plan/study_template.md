@@ -2,14 +2,16 @@
 
 Study depth: <light|medium|heavy>
 
-## Blocks
+## Concept blocks
 
-1. [in progress] <block title>
-   - Scope: <what this block covers at the selected topic depth>
-   - Learning outcomes: <what the learner should understand>
+1. [in progress] <one concept>
+   - Scope: <boundary of this concept at the selected topic depth>
+   - Learning outcome: <one thing the learner should be able to explain or do>
+   - Question or example: <focused application of this concept>
    - Sources: <precise course-source references>
 
-2. [pending] <block title>
+2. [pending] <next concept in prerequisite order>
    - Scope: <...>
-   - Learning outcomes: <...>
+   - Learning outcome: <...>
+   - Question or example: <...>
    - Sources: <...>

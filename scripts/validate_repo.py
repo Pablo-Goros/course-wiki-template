@@ -42,6 +42,7 @@ REQUIRED_PATHS = (
     "wiki/topics",
     ".agents/skills/ingest-material/SKILL.md",
     ".agents/skills/study-plan/SKILL.md",
+    ".agents/skills/study-plan/study_template.md",
     ".agents/skills/study-block/SKILL.md",
     ".agents/skills/assignment-plan/SKILL.md",
     ".agents/skills/assignment-step/SKILL.md",

@@ -3,3 +3,4 @@ __pycache__/
 /study_*.md
 /tmp/*
 !/tmp/.gitkeep
+/study/
